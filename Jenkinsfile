@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Ishwarikamble2004/real-time-server-monitoring-devops.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 bat 'cd app && docker build -t system-health-app .'
