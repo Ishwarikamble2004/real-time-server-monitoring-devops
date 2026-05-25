@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps System Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg,#0f172a,#1e293b,#111827);
+            min-height:100vh;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .container{
+            width:100%;
+            max-width:1300px;
+            margin:auto;
+        }
+
+        .title{
+            text-align:center;
+            font-size:56px;
+            margin-bottom:40px;
+            color:#38bdf8;
+            font-weight:bold;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap:30px;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .card{
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius:20px;
+            padding:30px;
+            text-align:center;
+            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+            transition:0.3s;
+
+            min-height:220px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 10px 40px rgba(56,189,248,0.4);
+        }
+
+        .card h2{
+            margin-bottom:20px;
+            color:#38bdf8;
+            font-size:28px;
+        }
+
+        .value{
+            font-size:40px;
+            font-weight:bold;
+            color:#ffffff;
+        }
+
+        .footer{
+            text-align:center;
+            margin-top:40px;
+            color:#94a3b8;
+            font-size:18px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">
+            DevOps Real-Time Monitoring Dashboard
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <h2>CPU Usage</h2>
+                <div class="value">{{ cpu }}%</div>
+            </div>
+
+            <div class="card">
+                <h2>Memory Usage</h2>
+                <div class="value">{{ memory }}%</div>
+            </div>
+
+            <div class="card">
+                <h2>Hostname</h2>
+                <div class="value" style="font-size:22px;">
+                    {{ hostname }}
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Operating System</h2>
+                <div class="value">
+                    {{ system }}
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Current Time</h2>
+                <div class="value" style="font-size:30px;">
+                    {{ uptime }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Powered by Flask • Docker • Prometheus • Grafana • Jenkins
+        </div>
+
+    </div>
+
+</body>
+</html>
